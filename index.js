@@ -28,6 +28,7 @@ app.post('/orders', (req, res) => {
 
     res.status(200).json({ message: 'Order received successfully', data: requestData });
     console.log("Response sent.");
+    console.log(requestData);
   } catch (error) {
     console.error("Error processing request:", error);
     res.status(500).json({ message: 'Error processing request' });
