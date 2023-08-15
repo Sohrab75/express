@@ -11,12 +11,13 @@ let ordersInfo = [];
 
 app.post('/orders', (req, res) => {
   const requestData = req.body;
-  console.log("Received data:", requestData); // Log the received data
+   // Log the received data
   // Process requestData and respond accordingly
   ordersInfo.push(requestData);
   fs.writeFileSync('orders.json', JSON.stringify(ordersInfo, null, 2), 'utf-8');
   // For example, you can send a response back to the client:
   res.status(200).json({ message: 'Order received successfully', data: requestData });
+  console.log("Received data:", requestData);
 });
 
 app.get('/orders', (req, res) => {
